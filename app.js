@@ -1,6 +1,7 @@
 angular.module('app', [
   'ui.router',
-  'app.recipeList'
+  'app.recipeList',
+  'app.recipeService'
 ])
 
 .config(function ($stateProvider, $urlRouterProvider) {
