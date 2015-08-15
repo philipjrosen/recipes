@@ -14,6 +14,15 @@ angular.module('app', [
       templateUrl: 'recipeListView.html',
       controller: 'recipeListCtrl'
     });
+})
 
+
+.filter('byIngredient', function () {
+  return function (recipes, ingredient) {
+    if (!recipes || !ingredient) return recipes;
+    return _.filter(recipes, function(recipe) {
+      return _.indexOf(recipe.ingredients, ingredient) > -1;
+    });
+  };
 })
 ;
