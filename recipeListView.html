@@ -4,3 +4,8 @@
     <input type="checkbox" ng-model="isChecked" ng-change="updateIngredientLists(isChecked, $index)">
   </li>
 </ul>
+<br />
+<ul>
+  <li ng-repeat="ingredient in distinctList | orderBy">{{ingredient}}</li>
+</ul>
+<br />
