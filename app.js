@@ -47,9 +47,20 @@ var obj = {};
       return obj;
     };
 
+    var makeDistinctList = function(obj) {
+      var selected = [];
+
+      _.forEach(obj, function(elem){
+        selected.push(elem);
+      });
+
+      return _.union.apply(null, selected);
+    };
+
     $scope.$watch('datasource', function(newValue, oldValue) {
       $scope.items = newValue;
       ingredientLists = updateIngredientLists($scope.items);
+      $scope.distinctList = makeDistinctList(ingredientLists);
     }, true);
 
   };
