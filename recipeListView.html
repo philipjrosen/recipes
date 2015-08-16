@@ -1,9 +1,9 @@
 <input type="text" ng-model="ingredient" placeholder="Filter list by ingredient">
 <ul>
-  <li ng-repeat="recipe in recipes | filter:ingredient">{{recipe.name}}
+  <li ng-repeat="recipe in (filteredRecipes = (recipes | filter:ingredient))">{{recipe.name}}
     <input type="checkbox" ng-model="recipe.checked">
   </li>
 </ul>
 <br />
 
-<distinct-ingredients datasource="recipes"></distinct-ingredients>
+<distinct-ingredients datasource="filteredRecipes"></distinct-ingredients>
