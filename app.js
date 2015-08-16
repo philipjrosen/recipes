@@ -26,11 +26,22 @@ angular.module('app', [
 })
 
 .directive('distinctIngredients', function () {
+
+  var controller = function ($scope) {
+
+    $scope.$watch('datasource', function(newValue, oldValue) {
+      $scope.items = newValue;
+    }, true);
+
+  };
+
   return {
     scope: {
       datasource: "="
     },
-    templateUrl: 'ingredientsListView.html'
+    templateUrl: 'ingredientsListView.html',
+    controller: controller
   };
+
 })
 ;
