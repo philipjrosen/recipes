@@ -27,10 +27,29 @@ angular.module('app', [
 
 .directive('distinctIngredients', function () {
 
+var obj = {};
   var controller = function ($scope) {
+
+    $scope.distinctList = [];
+    var ingredientLists = {};
+
+    var updateIngredientLists = function(list) {
+      var obj = {};
+      _.forEach(list, function (recipe) {
+        if (recipe.checked) {
+          obj[recipe.name] = recipe.ingredients;
+        } else {
+          if (obj[recipe.name]) {
+            delete obj[recipe.name];
+          }
+        }
+      });
+      return obj;
+    };
 
     $scope.$watch('datasource', function(newValue, oldValue) {
       $scope.items = newValue;
+      ingredientLists = updateIngredientLists($scope.items);
     }, true);
 
   };
