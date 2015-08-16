@@ -1,6 +1,6 @@
 angular.module('app.recipeList', [])
 
-.controller('recipeListCtrl', ['$scope', "recipeFactory", function ($scope, recipeFactory) {
+.controller('recipeListCtrl', ['$scope', 'recipeFactory', 'localStorageService', function ($scope, recipeFactory, localStorageService) {
 
   var addCheckedProperty = function(arr) {
     _.forEach(arr, function(obj) {
@@ -23,7 +23,15 @@ angular.module('app.recipeList', [])
   };
 
   var init = function() {
-    $scope.getRecipes();
+    if (localStorageService.isSupported) {
+      var recipesInStore = localStorageService.get('recipes');
+
+      $scope.recipes = recipesInStore || $scope.getRecipes();
+
+      $scope.$watch('recipes', function () {
+        localStorageService.set('recipes', $scope.recipes);
+      }, true);
+    }
   };
 
   init();
