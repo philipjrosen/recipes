@@ -1,7 +1,7 @@
 <input type="text" ng-model="ingredient" placeholder="Filter list by ingredient">
 <ul>
   <li ng-repeat="recipe in recipes | filter:ingredient">{{recipe.name}}
-    <input type="checkbox" ng-model="isChecked" ng-change="updateIngredientLists(isChecked, $index)">
+    <input type="checkbox" ng-model="isChecked" ng-change="updateCheckedProperty(isChecked, $index)">
   </li>
 </ul>
 <br />
@@ -9,3 +9,4 @@
   <li ng-repeat="ingredient in distinctList | orderBy">{{ingredient}}</li>
 </ul>
 <br />
+<distinct-ingredients datasource="recipes"></distinct-ingredients>
