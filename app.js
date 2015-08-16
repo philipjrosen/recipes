@@ -17,6 +17,12 @@ angular.module('app', [
     });
 })
 
+.config(function (localStorageServiceProvider) {
+  localStorageServiceProvider
+    .setPrefix('ls')
+    .setStorageType('sessionStorage');
+})
+
 .filter('byIngredient', function () {
   return function (recipes, ingredient) {
     if (!recipes || !ingredient) return recipes;
