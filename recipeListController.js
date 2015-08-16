@@ -5,6 +5,18 @@ angular.module('app.recipeList', [])
   var ingredientLists = {};
   $scope.distinctList = [];
 
+  var addCheckedProperty = function(arr) {
+    _.forEach(arr, function(obj) {
+      obj.checked = false;
+    });
+  };
+
+  $scope.updateCheckedProperty = function(checked, index) {
+    checked ?
+      $scope.recipes[index].checked = true :
+      $scope.recipes[index].checked = false;
+  };
+
   var addToIngredientsList = function(index, name) {
     ingredientLists[name] = $scope.recipes[index].ingredients;
   };
@@ -37,6 +49,7 @@ angular.module('app.recipeList', [])
     recipeFactory.getRecipes()
     .then(function (recipes) {
       $scope.recipes = recipes;
+      addCheckedProperty($scope.recipes);
     });
   };
 
