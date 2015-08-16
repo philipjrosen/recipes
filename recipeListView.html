@@ -1,9 +1,11 @@
-<input type="text" ng-model="ingredient" placeholder="Filter list by ingredient">
-<ul>
-  <li ng-repeat="recipe in (filteredRecipes = (recipes | filter:ingredient))">{{recipe.name}}
-    <input type="checkbox" ng-model="recipe.checked">
-  </li>
-</ul>
-<br />
-
-<distinct-ingredients datasource="filteredRecipes"></distinct-ingredients>
+<div id="recipes">
+  <h2>Recipes</h2>
+  <input type="text" ng-model="ingredient" placeholder="Filter list by ingredient">
+  <ul>
+    <li ng-repeat="recipe in (filteredRecipes = (recipes | filter:ingredient))">{{recipe.name}}
+      <input type="checkbox" ng-model="recipe.checked">
+    </li>
+  </ul>
+  <br />
+</div>
+<distinct-ingredients class="column" datasource="filteredRecipes"></distinct-ingredients>

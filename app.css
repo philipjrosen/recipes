@@ -1,0 +1,15 @@
+#container {
+    width:600px;
+    margin:20px auto;
+}
+
+#recipes {
+    float:left;
+    width:300px;
+    margin-left: 400px;
+}
+
+#ingredients {
+    float:left;
+    width:300px;
+}
