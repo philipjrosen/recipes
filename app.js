@@ -1,7 +1,8 @@
 angular.module('app', [
   'ui.router',
   'app.recipeList',
-  'app.recipeService'
+  'app.recipeService',
+  'LocalStorageModule'
 ])
 
 .config(function ($stateProvider, $urlRouterProvider) {
