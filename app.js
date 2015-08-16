@@ -34,7 +34,7 @@ angular.module('app', [
 
 .directive('distinctIngredients', function () {
 
-var obj = {};
+  var obj = {};
   var controller = function ($scope) {
 
     $scope.distinctList = [];
@@ -80,5 +80,4 @@ var obj = {};
     controller: controller
   };
 
-})
-;
+});
