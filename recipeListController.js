@@ -8,12 +8,6 @@ angular.module('app.recipeList', [])
     });
   };
 
-  $scope.updateCheckedProperty = function(checked, index) {
-    checked ?
-      $scope.recipes[index].checked = true :
-      $scope.recipes[index].checked = false;
-  };
-
   $scope.getRecipes = function() {
     recipeFactory.getRecipes()
     .then(function (recipes) {
